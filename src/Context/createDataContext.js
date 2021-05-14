@@ -1,5 +1,4 @@
 import React, { useReducer } from 'react';
-import { Text } from 'react-native';
 
 export default (reducer, actions, initialState) => {
   const Context = React.createContext();
@@ -13,9 +12,9 @@ export default (reducer, actions, initialState) => {
     }
 
     return (
-      <Context.provider value={{ state: state, ...boundActions }}>
+      <Context.Provider value={{ state: state, ...boundActions }}>
         {children}
-      </Context.provider>
+      </Context.Provider>
     );
   };
 
