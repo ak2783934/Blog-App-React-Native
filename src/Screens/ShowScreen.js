@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { Context } from '../Context/BlogContext';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -11,10 +11,14 @@ function ShowScreen({ navigation }) {
     blogPost => blogPost.id === navigation.getParam('id')
   );
 
+  const [id, setId] = useState(navigation.getParam('id'));
+  const [title, setTitle] = useState(navigation.getParam('title'));
+  const [content, setContent] = useState(navigation.getParam('content'));
+
   return (
     <View>
-      <Text>{blogPost.title}</Text>
-      <Text>{blogPost.content}</Text>
+      <Text>{title}</Text>
+      <Text>{content}</Text>
     </View>
   );
 }
@@ -22,11 +26,7 @@ function ShowScreen({ navigation }) {
 ShowScreen.navigationOptions = ({ navigation }) => {
   return {
     headerRight: () => (
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('Edit', { id: navigation.getParam('id') })
-        }
-      >
+      <TouchableOpacity onPress={() => navigation.navigate('Edit', { id })}>
         <EvilIcons name='pencil' size={35} />
       </TouchableOpacity>
     ),
