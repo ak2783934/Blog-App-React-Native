@@ -1,11 +1,15 @@
-import React from 'react';
-import { createAppContainer } from 'react-navigation';
-import IndexScreen from './src/Screens/IndexScreen';
-import { createStackNavigator } from 'react-navigation-stack';
-import { Provider } from './src/Context/BlogContext';
-import ShowScreen from './src/Screens/ShowScreen';
-import CreateScreen from './src/Screens/CreateScreen';
-import EditScreen from './src/Screens/EditScreen';
+import React from "react";
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+
+/* provider */
+import { Provider } from "./src/Context/BlogContext";
+
+/* screens */
+import IndexScreen from "./src/Screens/IndexScreen";
+import ShowScreen from "./src/Screens/ShowScreen";
+import CreateScreen from "./src/Screens/CreateScreen";
+import EditScreen from "./src/Screens/EditScreen";
 
 const navigator = createStackNavigator(
   {
@@ -15,10 +19,10 @@ const navigator = createStackNavigator(
     Edit: EditScreen,
   },
   {
-    initialRouteName: 'Index',
+    initialRouteName: "Index",
     defaultNavigationOption: {
-      title: 'Blogs',
-      headerTitleAlign: 'center',
+      title: "Blogs",
+      headerTitleAlign: "center",
     },
   }
 );
